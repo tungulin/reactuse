@@ -63,6 +63,11 @@ export default async () => {
 
         pageData.title = `${name} React hook Reactuse siberiacancode`;
         pageData.description = description;
+
+        pageData.frontmatter.head.push(
+          ['meta', { property: 'og:title', content: pageData.title }],
+          ['meta', { property: 'og:description', content: pageData.description }]
+        );
       }
     },
     head: [
