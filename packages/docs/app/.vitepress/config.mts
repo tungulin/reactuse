@@ -57,8 +57,12 @@ export default async () => {
         }
       ]);
 
-      if (pageData.relativePath.includes('hooks')) {
-        pageData.title = pageData.params?.name;
+      if (pageData.relativePath.includes('hooks') && pageData.params?.name) {
+        const name = pageData.params.name as string;
+        const description = (pageData.params.description as string) ?? '';
+
+        pageData.title = `${name} React hook Reactuse siberiacancode`;
+        pageData.description = description;
       }
     },
     head: [
