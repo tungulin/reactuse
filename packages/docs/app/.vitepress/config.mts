@@ -30,6 +30,7 @@ export default async () => {
   return defineConfig({
     base: '/',
     title: 'reactuse',
+    titleTemplate: false,
     description:
       'Improve your react applications with our library 📦 designed for comfort and speed',
     markdown: {
@@ -61,7 +62,7 @@ export default async () => {
         const name = pageData.params.name as string;
         const description = (pageData.params.description as string) ?? '';
 
-        pageData.title = `${name} React hook Reactuse siberiacancode`;
+        pageData.title = `${name} React hook Reactuse`;
         pageData.description = description;
 
         pageData.frontmatter.head.push(
