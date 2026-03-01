@@ -21,36 +21,24 @@ import {
 const TOP_LEVEL_SECTIONS = [
   { name: "Introduction", href: "/docs" },
   {
-    name: "Components",
-    href: "/docs/components",
-  },
-  {
     name: "Installation",
     href: "/docs/installation",
   },
   {
-    name: "Directory",
-    href: "/docs/directory",
+    name: "reactuse.json",
+    href: "/docs/reactuse-json",
   },
   {
-    name: "RTL",
-    href: "/docs/rtl",
+    name: "CLI",
+    href: "/docs/cli",
   },
   {
-    name: "MCP Server",
-    href: "/docs/mcp",
+    name: "target",
+    href: "/docs/target",
   },
   {
-    name: "Registry",
-    href: "/docs/registry",
-  },
-  {
-    name: "Forms",
-    href: "/docs/forms",
-  },
-  {
-    name: "Changelog",
-    href: "/docs/changelog",
+    name: "memoization",
+    href: "/docs/memoization",
   },
 ]
 const EXCLUDED_SECTIONS = ["installation", "dark-mode", "changelog", "rtl"]
@@ -79,35 +67,24 @@ export function DocsSidebar({
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {TOP_LEVEL_SECTIONS.map(({ name, href }) => {
-                if (!showMcpDocs && href.includes("/mcp")) {
-                  return null
-                }
-                return (
-                  <SidebarMenuItem key={name}>
-                    <SidebarMenuButton
-                      asChild
-                      isActive={
-                        href === "/docs"
-                          ? pathname === href
-                          : pathname.startsWith(href)
-                      }
-                      className="data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md"
-                    >
-                      <Link href={href}>
-                        <span className="absolute inset-0 flex w-(--sidebar-menu-width) bg-transparent" />
-                        {name}
-                        {PAGES_NEW.includes(href) && (
-                          <span
-                            className="flex size-2 rounded-full bg-blue-500"
-                            title="New"
-                          />
-                        )}
-                      </Link>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                )
-              })}
+              {TOP_LEVEL_SECTIONS.map(({ name, href }) => (
+                <SidebarMenuItem key={name}>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={
+                      href === "/docs"
+                        ? pathname === href
+                        : pathname.startsWith(href)
+                    }
+                    className="data-[active=true]:bg-accent data-[active=true]:border-accent 3xl:fixed:w-full 3xl:fixed:max-w-48 relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md"
+                  >
+                    <Link href={href}>
+                      <span className="absolute inset-0 flex w-(--sidebar-menu-width) bg-transparent" />
+                      {name}
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

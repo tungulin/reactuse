@@ -10,7 +10,8 @@
     "preview": "pnpm --filter=shadcn build && next build && next start --port 4000",
     "lint": "eslint . --fix",
     "type": "tsc --noEmit",
-    "pretty": "yarn type && yarn lint && yarn format"
+    "pretty": "yarn type && yarn lint && yarn format",
+    "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
     "@base-ui/react": "1.1.0",

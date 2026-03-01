@@ -1,4 +1,5 @@
 import { type Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 
 import { Icons } from "@/components/icons"
@@ -86,7 +87,6 @@ export default function IndexPage() {
       <div className="container grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
         {cardsData.map((card) => {
           const Icon = card.icon
-
           return (
             <div
               key={card.title}
@@ -100,6 +100,26 @@ export default function IndexPage() {
             </div>
           )
         })}
+      </div>
+      <div className="mt-20">
+        <div className="mb-10 text-center text-4xl font-bold">
+          Team & Contributors
+        </div>
+        <div className="flex items-center justify-center">
+          <Link href="https://github.com/siberiacancode">
+            <div className="flex items-center justify-center gap-3">
+              <Image
+                width={40}
+                height={40}
+                alt="SIBERIA CAN CODE"
+                className="rounded-lg"
+                src="https://avatars.githubusercontent.com/u/122668137?s=200&v=4"
+              />
+              <div className="text-xl font-bold">SIBERIA CAN CODE</div>
+            </div>
+          </Link>
+        </div>
+        <div className="mt-12 text-center"></div>
       </div>
     </div>
   )
