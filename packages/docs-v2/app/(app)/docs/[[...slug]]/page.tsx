@@ -9,7 +9,6 @@ import { absoluteUrl } from "@/lib/utils"
 import { DocsBaseSwitcher } from "@/components/docs-base-switcher"
 import { DocsCopyPage } from "@/components/docs-copy-page"
 import { DocsTableOfContents } from "@/components/docs-toc"
-import { OpenInV0Cta } from "@/components/open-in-v0-cta"
 import { Button } from "@/registry/new-york-v4/ui/button"
 
 export const revalidate = false
@@ -52,19 +51,6 @@ export async function generateMetadata(props: {
         },
       ],
     },
-    twitter: {
-      card: "summary_large_image",
-      title: doc.title,
-      description: doc.description,
-      images: [
-        {
-          url: `/og?title=${encodeURIComponent(
-            doc.title
-          )}&description=${encodeURIComponent(doc.description)}`,
-        },
-      ],
-      creator: "@shadcn",
-    },
   }
 }
 
@@ -73,6 +59,7 @@ export default async function Page(props: {
 }) {
   const params = await props.params
   const page = source.getPage(params.slug)
+
   if (!page) {
     notFound()
   }
@@ -101,7 +88,7 @@ export default async function Page(props: {
                 </h1>
                 <div className="docs-nav flex items-center gap-2">
                   <div className="hidden sm:block">
-                    <DocsCopyPage page={raw} url={absoluteUrl(page.url)} />
+                    <DocsCopyPage page={raw} />
                   </div>
                   <div className="ml-auto flex gap-2">
                     {neighbours.previous && (
@@ -188,9 +175,6 @@ export default async function Page(props: {
             <DocsTableOfContents toc={doc.toc} />
           </div>
         ) : null}
-        <div className="hidden flex-1 flex-col gap-6 px-6 xl:flex">
-          <OpenInV0Cta />
-        </div>
       </div>
     </div>
   )

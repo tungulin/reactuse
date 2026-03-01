@@ -5,7 +5,6 @@ import { IconRss } from "@tabler/icons-react"
 
 import { getChangelogPages, type ChangelogPageData } from "@/lib/changelog"
 import { absoluteUrl } from "@/lib/utils"
-import { OpenInV0Cta } from "@/components/open-in-v0-cta"
 
 export const revalidate = false
 export const dynamic = "force-static"
@@ -134,9 +133,6 @@ export default function ChangelogPage() {
               </a>
             )}
           </div>
-        </div>
-        <div className="hidden flex-1 flex-col gap-6 px-6 xl:flex">
-          <OpenInV0Cta />
         </div>
       </div>
     </div>
